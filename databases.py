@@ -46,4 +46,5 @@ def Add_To_Cart(productID):
 	session.commit()
 
 
-add_product("the Uri", 29.99,"/theUri.jpeg","Ever dreamed of looking like Uri Etzion? this is the look for you!")
+bb=add_product("the Uri", 29.99,"/theUri.jpeg","Ever dreamed of looking like Uri Etzion? this is the look for you!")
+print(bb)
