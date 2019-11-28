@@ -19,6 +19,7 @@ def add_product(name, price,picture_link, description):
 		description=description)
 	session.add(product_object)
 	session.commit()
+
 def edit_product(id):
 	Product = session.query(Product).filter_by(id=id)
 	Product.name=name
@@ -26,14 +27,15 @@ def edit_product(id):
 	Product.picture_link=picture_link
 	Product.description=description
 	session.commit()
+
 def delete_product(id):
 	session.query(Product).filter_by(
 	id=id).delete()
 	session.commit()
 
 def all_products():
- 	session.query(Product).all()
-	session.commit()
+ 	return session.query(Product).all()
+	
 
 def get_product(id):
 	session.query(Product).filter_by(id=id)
@@ -45,6 +47,3 @@ def Add_To_Cart(productID):
 	session.add(product_Added)
 	session.commit()
 
-
-bb=add_product("the Uri", 29.99,"/theUri.jpeg","Ever dreamed of looking like Uri Etzion? this is the look for you!")
-print(bb)

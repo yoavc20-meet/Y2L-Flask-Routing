@@ -1,41 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>fake beards store </title>
-</head>
-<body>
-<a href="{{url_for('home')}}">Visit my home store page</a>
-<a href="{{url_for('cart')}}">press here to see your cart</a>
-
-
-<!--do aa loop that goes through the products and displaying them in the webpage - next session-->
-<!-- <div >
-  <img src="/static/theUri.jpeg" alt="" style="width:30%">
-  <h1>the Uri</h1>
-  <p class="price">$29.99</p>
-  <p>Ever dreamed of looking like Uri Etzion? this is the look for you!</p>
-
-  <p><a href="{{url_for('cart')}}"><button>Add to Cart</button></a></p>
-</div> -->
-<div >
-  <img src="/static/clean.jpg" alt="" style="width:30%">
-  <h1>the clean look(Toby's favourite)</h1>
-  <p class="price">$24.99</p>
-  <p>You don't like facial hair? this is the look for you!</p>
-
-  <p><a href="{{url_for('cart')}}"><button>Add to Cart</button></a></p>
-</div>
-<div >
-  <img src="/static/harden.jpeg" alt="" style="width:30%">
-  <h1>the James Harden</h1>
-  <p class="price">$35.99</p>
-  <p>Ever dreamed of having a huge beards and make all your friends jealous? this is the look for you!</p>
-
-  <p><a href="{{url_for('cart')}}"><button>Add to Cart</button></a></p>
-</div>
-<head>
-<title>Table with database</title>
-<style>
+  <title>fake beards store </title>
+  <style>
 table {
 border-collapse: collapse;
 width: 100%;
@@ -52,14 +20,43 @@ tr:nth-child(even) {background-color: #f2f2f2}
 </style>
 </head>
 <body>
-<table>
-<tr>
-<th>Id</th>
-<th>Username</th>
-<th>Password</th>
-</tr>
+<a href="{{url_for('home')}}">Visit my home store page</a>
+<a href="{{url_for('cart')}}">press here to see your cart</a>
+{%for i in products or[]%}
+<div >
+  <img src="{{i.picture_link}}" alt="" style="width:30%">
+  <h1>{{i.name}}</h1>
+  <p class="price">{{i.price}}</p>
+  <p>{{i.description}}</p>
 
-</table>
+  <p><a href="{{url_for('cart')}}"><button>Add to Cart</button></a></p>
+</div>
+ {%endfor%}
+<!-- make it print only once next session -->
+
 </body>
-</body>
-</html>
+
+<div >
+  <img src="/static/theUri.jpeg" alt="" style="width:30%">
+  <h1>the Uri</h1>
+  <p class="price">$29.99</p>
+  <p>Ever dreamed of looking like Uri Etzion? this is the look for you!</p>
+
+  <p><a href="{{url_for('cart')}}"><button>Add to Cart</button></a></p>
+</div>
+<div >
+  <img src="/static/clean.jpg" alt="" style="width:30%">
+  <h1>the clean look(Toby's favourite)</h1>
+  <p class="price">$24.99</p>
+  <p>You don't like facial hair? this is the look for you!</p>
+
+  <p><a href="{{url_for('cart')}}"><button>Add to Cart</button></a></p>
+</div>
+<div >
+  <img src="/static/harden.jpeg" alt="" style="width:30%">
+  <h1>the James Harden</h1>
+  <p class="price">$35.99</p>
+  <p>Ever dreamed of having a huge beard and making all your friends jealous? this is the look for you!</p>
+
+  <p><a href="{{url_for('cart')}}"><button>Add to Cart</button></a></p>
+</div>
