@@ -47,3 +47,20 @@ def Add_To_Cart(productID):
 	session.add(product_Added)
 	session.commit()
 
+def all_added():
+	return session.query(cart).all()
+
+def delete_cart(productID):
+	session.query(cart).filter_by(
+	productID=productID).delete()
+	session.commit()
+
+
+# delete_cart(1)
+# Add_To_Cart(1)
+# add_product("The Uri", 24.99, "static/theUri.jpeg", "Ever dreamed of looking like Uri Etzion? this is the look for you!")
+# add_product("The Clean Look(Toby's favourite!)", 29.99, "static/clean.jpg", "You don't like facial hair? this is the look for you!")
+# add_product("The James Harden)",34.99, "static/harden.jpeg", "Ever dreamed of having a huge beard and making all your friends jealous? this is the look for you!")
+# delete_product()
+# delete_product(9)
+# delete_product(8)

@@ -22,12 +22,14 @@ def store():
 def about():
 	return render_template("about.html")
 
-@app.route('/cart')
-def cart():
-	return render_template("cart.html")
 
+@app.route('/cart/<int:productID>')
+def cart(productID):
+	return render_template("cart.html",carts=all_added(),productID=productID)
 
-#####################
+##################### the problem happened when i tried doing the using 
+#of the integer in app route cart
+#
 
 
 if __name__ == '__main__':
