@@ -29,7 +29,9 @@ tr:nth-child(even) {background-color: #f2f2f2}
   <p class="price">{{i.price}}</p>
   <p>{{i.description}}</p>
 
-  <p><a href="{{url_for('cart')}}"><button>Add to Cart</button></a></p>
+<form action="/cart" method = 'POST'>
+	<input type='submit' name='added' value={{i.id}} placeholder="Add to Cart"> </input>
+</form>
 </div>
  {%endfor%}
 <!-- make it print only once next session, and the pics

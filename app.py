@@ -23,13 +23,15 @@ def about():
 	return render_template("about.html")
 
 
-@app.route('/cart/<int:productID>')
-def cart(productID):
-	return render_template("cart.html",carts=all_added(),productID=productID)
+@app.route('/cart', methods=['GET', 'POST'] )
+def cart():
+	if request.method == 'POST':	
+		added= request.form['added']
+		Add_To_Cart(added)
+		return render_template("cart.html", carts= all_added())
+	else:
+		return render_template("cart.html",carts=all_added())
 
-##################### the problem happened when i tried doing the using 
-#of the integer in app route cart
-#
 
 
 if __name__ == '__main__':
